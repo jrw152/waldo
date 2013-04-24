@@ -8,6 +8,7 @@ public class Gargoyle : MonoBehaviour {
 	GameObject closest;
 	public int speed = 2;
 	public bool lookedAt=false;
+	bool called=false;
 	// Use this for initialization
 	void Start () {
 	
@@ -21,7 +22,8 @@ public class Gargoyle : MonoBehaviour {
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
 		
-		//Loops through the prisoners and finds the closest prisoner to the guard's location
+		//Loops through the waldos and finds the closest waldo to the gargoyle's location
+		//Only more then one waldo if the waldo uses the skin swap ability
         foreach (GameObject go in gos) {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
@@ -31,8 +33,8 @@ public class Gargoyle : MonoBehaviour {
             }
         }
 		
-		//Indicates whether the closest prisoner is within range of the guard
-		if (lookedAt==false){
+		//Indicates whether the gargoyle should move towards waldo or not
+		if (lookedAt == false && called == true){
 		Transform playerTransform = closest.transform;
 		//move guard towards prisoner's position.
 		Vector3 v1 = playerTransform.position;
@@ -47,9 +49,20 @@ public class Gargoyle : MonoBehaviour {
 			}
 	}
 	}
+	void SummonGargoyle(){
+	called = true;	
+	}
+	
+	void visibleToWaldo(){
+	lookedAt = true;	
+	}
+	
+	void invisibleToWaldo(){
+	lookedAt = false;	
+	}
 	
 	void OnTriggerEnter(Collider other) {
-        if (other.tag==("player_shank")){
+        if (other.tag==("Waldo")){
 		other.SendMessage("Injured",gameObject.tag);
 		}
     }
