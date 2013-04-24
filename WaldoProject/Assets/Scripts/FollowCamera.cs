@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
 
 public class FollowCamera : MonoBehaviour {
     public GameObject target;
@@ -18,5 +17,4 @@ public class FollowCamera : MonoBehaviour {
 		transform.LookAt(target.transform);
 	}
 			
-}
 }

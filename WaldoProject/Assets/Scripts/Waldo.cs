@@ -12,24 +12,25 @@ public class Waldo : MonoBehaviour {
 	public int maxSwapTimer = 10;
 	
 	void Start () {
-
+		/* Keeps waldo from flying into space*/
+		rigidbody.freezeRotation = true;
 	}
 	
 	//TODO: waldo is invisible if looking at guards
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 			/*basic movmement mechanics*/
 			if(Input.GetKey(KeyCode.W)){
-				transform.Translate(Vector3.forward*Time.deltaTime*moveSpeed);
+				transform.Translate(Vector3.forward*Time.deltaTime*moveSpeed, Space.Self);
 			}
 			if(Input.GetKey(KeyCode.S)){
-				transform.Translate(Vector3.back*Time.deltaTime*moveSpeed);
+				transform.Translate(Vector3.back*Time.deltaTime*moveSpeed, Space.Self);
 			}
 			if(Input.GetKey(KeyCode.D)){
-				transform.Rotate(Vector3.right*Time.deltaTime);
+				transform.Rotate(0, Input.GetAxis("Horizontal")*turnSpeed*Time.deltaTime, 0,Space.Self);
 			}
 			if(Input.GetKey(KeyCode.A)){
-				transform.Rotate(Vector3.left*Time.deltaTime);
+				transform.Rotate(0, Input.GetAxis("Horizontal")*turnSpeed*Time.deltaTime, 0,Space.Self);
 			}
 		
 			//teleport mechanics
@@ -45,9 +46,9 @@ public class Waldo : MonoBehaviour {
 			}
 			if(swapTimer == maxSwapTimer){
 				swapTimer = 0;
-				disguised = false;
+				revert();
 			}
-		
+
 	}
 	//TODO: message sent from hat object
 	void GetHat(){
@@ -70,5 +71,9 @@ public class Waldo : MonoBehaviour {
 		}
 	}
 	
+	void revert(){
+		disguised = false;
+		//anit-load meshes and switch tags back
+	}
 	
 }
