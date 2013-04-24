@@ -6,7 +6,9 @@ public class Waldo : MonoBehaviour {
 	private bool haveHat = false;
 	public float moveSpeed = 0f;
 	public float turnSpeed = 0f;
-	GameObject waldites = null;
+	public GameObject waldites;
+	public GameObject Gargoyle;
+	public GameObject Guard;
 	public bool disguised = false;
 	int swapTimer = 0;
 	public int maxSwapTimer = 10;
@@ -74,6 +76,26 @@ public class Waldo : MonoBehaviour {
 	void revert(){
 		disguised = false;
 		//anit-load meshes and switch tags back
+	}
+	
+	void freeze(){
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+			RaycastHit hit;
+	        if (Physics.Raycast(transform.position,fwd,out hit,20)){
+				if(hit.collider.tag == "gargoyle"){
+	            	Gargoyle.SendMessage("visibleToWaldo");
+				}
+				if(hit.collider.tag == "guard"){
+					Guard.SendMessage("invisiWaldo");//unimplented, make guard freeze or whatever
+				}
+			}
+			else
+				Gargoyle.SendMessage("invisibleToWaldo");
+	}
+	
+	void Injured(){
+		this.gameObject.SetActive(false);
+		//go to end screen
 	}
 	
 }
