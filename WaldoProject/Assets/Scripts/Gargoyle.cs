@@ -7,7 +7,6 @@ public class Gargoyle : MonoBehaviour {
 	GameObject[] gos;
 	GameObject closest;
 	public int speed = 2;
-	public int sightRange=200;
 	public bool lookedAt=false;
 	// Use this for initialization
 	void Start () {
@@ -17,7 +16,7 @@ public class Gargoyle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-        gos = GameObject.FindGameObjectsWithTag("waldo");
+        gos = GameObject.FindGameObjectsWithTag("Waldo");
         
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
