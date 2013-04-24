@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\FollowCamera.cs" />
+     <Compile Include="Assets\Scripts\Gargoyle.cs" />
      <Compile Include="Assets\Scripts\Guard.cs" />
      <Compile Include="Assets\Scripts\Waldo.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
