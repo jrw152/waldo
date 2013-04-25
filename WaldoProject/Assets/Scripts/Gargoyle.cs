@@ -7,7 +7,7 @@ public class Gargoyle : MonoBehaviour {
 	GameObject[] gos;
 	GameObject closest;
 	public int speed = 2;
-	public bool lookedAt=false;
+	bool visible=false;
 	bool called=false;
 	// Use this for initialization
 	void Start () {
@@ -18,7 +18,7 @@ public class Gargoyle : MonoBehaviour {
 	void Update () {
 	
         gos = GameObject.FindGameObjectsWithTag("Waldo");
-        
+        Debug.Log(visible);
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
 		
@@ -34,7 +34,7 @@ public class Gargoyle : MonoBehaviour {
         }
 		
 		//Indicates whether the gargoyle should move towards waldo or not
-		if (lookedAt == false && called == true){
+		if (visible == false){
 		Transform playerTransform = closest.transform;
 		//move guard towards prisoner's position.
 		Vector3 v1 = playerTransform.position;
@@ -45,7 +45,7 @@ public class Gargoyle : MonoBehaviour {
 			////indicates that the prisoner should be attacked by the guard
 			if(v1==v2){
 				
-				closest.SendMessage("Injured",gameObject.tag);
+				//closest.SendMessage("Injured",gameObject.tag);
 			}
 	}
 	}
@@ -54,16 +54,16 @@ public class Gargoyle : MonoBehaviour {
 	}
 	
 	void visibleToWaldo(){
-	lookedAt = true;	
+	visible = true;	
 	}
 	
 	void invisibleToWaldo(){
-	lookedAt = false;	
+	visible = false;	
 	}
 	
 	void OnTriggerEnter(Collider other) {
         if (other.tag==("Waldo")){
-		other.SendMessage("Injured",gameObject.tag);
+		//other.SendMessage("Injured",gameObject.tag);
 		}
     }
 }

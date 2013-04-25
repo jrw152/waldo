@@ -83,6 +83,7 @@ public class Waldo : MonoBehaviour {
 			RaycastHit hit;
 	        if (Physics.Raycast(transform.position,fwd,out hit,20)){
 				if(hit.collider.tag == "gargoyle"){
+				Debug.Log("GARGOYLE SAW BY WALDO");
 	            	Gargoyle.SendMessage("visibleToWaldo");
 				}
 				if(hit.collider.tag == "guard"){
