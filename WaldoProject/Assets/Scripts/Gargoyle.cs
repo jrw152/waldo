@@ -7,6 +7,7 @@ public class Gargoyle : MonoBehaviour {
 	GameObject[] gos;
 	GameObject closest;
 	public int speed = 2;
+	public GameObject Waldo;
 	bool visible=false;
 	bool called=false;
 	// Use this for initialization
@@ -45,7 +46,7 @@ public class Gargoyle : MonoBehaviour {
 			////indicates that the prisoner should be attacked by the guard
 			if(v1==v2){
 				
-				//closest.SendMessage("Injured",gameObject.tag);
+				closest.SendMessage("Injured",gameObject.tag);
 			}
 	}
 	}
@@ -63,7 +64,7 @@ public class Gargoyle : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other) {
         if (other.tag==("Waldo")){
-		//other.SendMessage("Injured",gameObject.tag);
+		Waldo.sendMesssage("Injured");
 		}
     }
 }
