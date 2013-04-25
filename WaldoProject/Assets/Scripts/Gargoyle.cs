@@ -34,7 +34,7 @@ public class Gargoyle : MonoBehaviour {
         }
 		
 		//Indicates whether the gargoyle should move towards waldo or not
-		if (visible == false){
+		if (visible == false && called == true){
 		Transform playerTransform = closest.transform;
 		//move guard towards prisoner's position.
 		Vector3 v1 = playerTransform.position;
