@@ -21,7 +21,10 @@ public class Waldo : MonoBehaviour {
 	//TODO: waldo is invisible if looking at guards
 	// Update is called once per frame
 	void FixedUpdate () {
+			//makes Waldo invisible if looking at guards
+			freeze ();
 			/*basic movmement mechanics*/
+			
 			if(Input.GetKey(KeyCode.W)){
 				transform.Translate(Vector3.forward*Time.deltaTime*moveSpeed, Space.Self);
 			}
@@ -81,7 +84,8 @@ public class Waldo : MonoBehaviour {
 	void freeze(){
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 			RaycastHit hit;
-	        if (Physics.Raycast(transform.position,fwd,out hit,20)){
+	        if (Physics.Raycast(transform.position,fwd,out hit,500)){
+			Debug.Log("Ray Hit Something");
 				if(hit.collider.tag == "gargoyle"){
 				Debug.Log("GARGOYLE SAW BY WALDO");
 	            	Gargoyle.SendMessage("visibleToWaldo");
