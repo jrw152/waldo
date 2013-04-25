@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;UNITY_STANDALONE_WIN;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -44,14 +44,27 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AnimationStateMachine\Archive\RootMotionControllerv1\Plugins\Mixamo\RootMotionComputer.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Archive\RootMotionControllerv1\Scripts\RootMotionCharacter.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\AnimationGraph.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\AnimationInfo.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\ExtendendMonoBehaviour.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\MixamoJSON.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\Util.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Blank Scripts for You\YourController.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Scripts\AnimationStateMachine.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Scripts\MixamoDemoControlScript.cs" />
      <Compile Include="Assets\Scripts\FollowCamera.cs" />
      <Compile Include="Assets\Scripts\Gargoyle.cs" />
      <Compile Include="Assets\Scripts\Guard.cs" />
      <Compile Include="Assets\Scripts\Waldo.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\AnimationStateMachine\README.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\AnimationStateMachine\Blank Scripts for You\YourGraph.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
+     <None Include="Assets\AnimationStateMachine\Scripts\demo_motion_pack.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

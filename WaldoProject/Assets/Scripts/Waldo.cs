@@ -90,9 +90,9 @@ public class Waldo : MonoBehaviour {
 				Debug.Log("GARGOYLE SAW BY WALDO");
 	            	Gargoyle.SendMessage("visibleToWaldo");
 				}
-				if(hit.collider.tag == "guard"){
-					Guard.SendMessage("invisiWaldo");//unimplented, make guard freeze or whatever
-				}
+				//if(hit.collider.tag == "guard"){
+					//Guard.SendMessage("invisiWaldo");//unimplented, make guard freeze or whatever
+				//}
 			}
 			else
 				Gargoyle.SendMessage("invisibleToWaldo");
@@ -101,8 +101,12 @@ public class Waldo : MonoBehaviour {
 	void Injured(){
 		//this.gameObject.SetActive(false);
 		//go to end screen
-		Debug.Log("RELOAD LEVEL");
+		//Debug.Log("RELOAD LEVEL");
 		 Application.LoadLevel (0);  
 	}
-	
+	void OnTriggerEnter(Collider other) {
+        if (other.tag==("Gargoyle")){
+		Injured();
+		}
+    }
 }

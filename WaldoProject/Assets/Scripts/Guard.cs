@@ -47,7 +47,7 @@ public class Guard : MonoBehaviour {
 			////indicates that the prisoner should be attacked by the guard
 			if(v1==v2){
 				
-				closest.SendMessage("Injured",gameObject.tag);
+				Waldo.SendMessage("Injured");
 			}
 	}
 	}

@@ -19,7 +19,7 @@ public class Gargoyle : MonoBehaviour {
 	void Update () {
 	
         gos = GameObject.FindGameObjectsWithTag("Waldo");
-        Debug.Log(visible);
+        //Debug.Log(visible);
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
 		
@@ -46,7 +46,7 @@ public class Gargoyle : MonoBehaviour {
 			////indicates that the prisoner should be attacked by the guard
 			if(v1==v2){
 				
-				closest.SendMessage("Injured",gameObject.tag);
+				Waldo.SendMessage("Injured");
 			}
 	}
 	}
@@ -62,9 +62,5 @@ public class Gargoyle : MonoBehaviour {
 	visible = false;	
 	}
 	
-	void OnTriggerEnter(Collider other) {
-        if (other.tag==("Waldo")){
-		Waldo.sendMesssage("Injured");
-		}
-    }
+	
 }
