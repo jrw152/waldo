@@ -85,18 +85,20 @@ public class Waldo : MonoBehaviour {
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 			RaycastHit hit;
 	        if (Physics.Raycast(transform.position,fwd,out hit,500)){
-			//Debug.Log("Ray Hit Something");
 				if(hit.collider.tag == "gargoyle"){
 				Debug.Log("GARGOYLE SAW BY WALDO");
 	            	Gargoyle.SendMessage("visibleToWaldo");
 				}
+				else{
+				Gargoyle.SendMessage("invisibleToWaldo");
+				}
 				//if(hit.collider.tag == "guard"){
-					//Guard.SendMessage("invisiWaldo");//unimplented, make guard freeze or whatever
+				//Guard.SendMessage("invisiWaldo");//unimplented, make guard freeze or whatever
 				//}
 			}
 			else
 				Gargoyle.SendMessage("invisibleToWaldo");
-	}
+			}
 	
 	void Injured(){
 		//this.gameObject.SetActive(false);
